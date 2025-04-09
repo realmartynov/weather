@@ -1,12 +1,13 @@
 package org.example;
 
-import java.util.Scanner;
-
 public class Weather {
-    private double x = Math.random()*200 - 100;
+    private String city;
+    private double x;
 
-    Scanner scan = new Scanner(System.in);
-    String city = scan.nextLine();
+    public Weather(String city){
+        this.city = city;
+        this.x = Math.random() * 200 - 100;
+    }
 
     public String getTemperature(){
         return "Погода для города " + city + ": " + x;
