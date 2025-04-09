@@ -1,8 +1,16 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Weather weather = new Weather();
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Введите город: ");
+        String city = scan.nextLine();
+
+        Weather weather = new Weather(city);
         System.out.println(weather.getTemperature());
     }
 }
