@@ -8,9 +8,16 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Введите город: ");
-        String city = scan.nextLine();
 
-        Weather weather = new Weather(city);
-        System.out.println(weather.getTemperature());
+        String city = scan.nextLine();
+        city = city.trim();
+
+        if (city.matches("^[А-Яа-яЁё\\-\\s]+$")){
+            Weather weather = new Weather(city);
+            System.out.println(weather.getTemperature());
+        } else
+            System.out.println("Введите название на русском.");
+
+
     }
 }
