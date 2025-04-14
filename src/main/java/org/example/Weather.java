@@ -9,10 +9,8 @@ public class Weather {
         this.x = Math.random() * 200 - 100;
     }
 
-    public String getTemperature(){
-        return "Погода для города " + city + ": " + x;
+    public double getTemperature() {
+        return x;
     }
-
-
 }
 
