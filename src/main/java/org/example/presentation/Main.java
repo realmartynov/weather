@@ -10,23 +10,23 @@ public class Main {
         WeatherRepository weatherRepository = new WeatherRepository();
         WeatherService weatherService = new WeatherService(weatherRepository);
 
-        Scanner scan = new Scanner(System.in);
+        try (Scanner scan = new Scanner(System.in)) {
 
-       while (true) {
-           System.out.print("Введите город (или 'выход' для завершения): ");
-           String city = scan.nextLine().trim();
+            while (true) {
+                System.out.print("Введите город (или 'выход' для завершения): ");
+                String city = scan.nextLine().trim();
 
-            if (city.equalsIgnoreCase("выход")) {
-                System.out.println("Программа завершена!");
-                break;
+                if (city.equalsIgnoreCase("выход")) {
+                    System.out.println("Программа завершена!");
+                    break;
+                }
+                try {
+                    Weather weather = weatherService.getWeather(city);
+                    System.out.printf("Погода для города %s: %.2f%n", weather.getCity(), weather.getTemp());
+                } catch (InvalidCityNameException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-            try {
-                Weather weather = weatherService.getWeather(city);
-                System.out.printf("Погода для города %s: %.2f%n", weather.getCity(), weather.getTemp());
-            } catch (InvalidCityNameException e){
-                System.out.println(e.getMessage());
-            }
-       }
-        scan.close();
+        }
     }
 }
