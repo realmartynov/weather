@@ -1,14 +1,16 @@
-package org.example.presentation;
-import org.example.application.WeatherService;
+package org.example.app;
+import org.example.service.WeatherService;
 import org.example.domain.InvalidCityNameException;
 import org.example.domain.Weather;
-import org.example.infrastructure.WeatherRepository;
+import org.example.repository.WeatherRepository;
+import org.example.service.impl.WeatherServiceImpl;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         WeatherRepository weatherRepository = new WeatherRepository();
-        WeatherService weatherService = new WeatherService(weatherRepository);
+        WeatherService weatherService = new WeatherServiceImpl(weatherRepository);
 
         try (Scanner scan = new Scanner(System.in)) {
 
