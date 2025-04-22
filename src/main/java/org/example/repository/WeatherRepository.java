@@ -1,4 +1,4 @@
-package org.example.infrastructure;
+package org.example.repository;
 import org.example.domain.Weather;
 
 import java.util.HashMap;
