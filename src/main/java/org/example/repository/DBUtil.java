@@ -1,4 +1,4 @@
-package org.example;
+package org.example.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class DBUtil {
             Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException("Failed to connect to database", e);
+            throw new RuntimeException("Не удалось подключиться к базе данных", e);
         }
     }
 }

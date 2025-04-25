@@ -1,6 +1,5 @@
 package org.example.repository;
 
-import org.example.DBUtil;
 import org.example.domain.Weather;
 
 import java.sql.*;
