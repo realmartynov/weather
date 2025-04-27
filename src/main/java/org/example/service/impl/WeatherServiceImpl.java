@@ -6,11 +6,7 @@ import org.example.domain.InvalidCityNameException;
 import org.example.repository.WeatherRepository;
 
 public class WeatherServiceImpl implements WeatherService {
-
-    private WeatherRepository repository;
-    public void WeatherService(WeatherRepository repository){
-        this.repository = repository;
-    }
+    private final WeatherRepository repository;
 
     public WeatherServiceImpl(WeatherRepository repository) {
         this.repository = repository;
